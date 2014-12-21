@@ -1,0 +1,52 @@
+
+<!doctype html>
+<html>
+	<head>
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="style.css">
+	</head>
+	<body>
+
+		<h1>To Do List</h1>
+		<div id="todo">
+
+
+			<input type="text" id="newToDo" placeholder="What needs completing?" />
+			<input id="add" type="button" value="Add to List" />
+
+				<ul class="list">
+
+				</ul>
+		</div>	
+	
+
+	</body>
+	<script>
+		$(function(){	
+			var listHeight = $("#todo").height;
+			$("#add").on("click", addListItem);
+			$(document).on("click", ".item", finish);
+
+	
+			function addListItem() {
+				var text = $("#newToDo").val();
+				var upperText = text.toUpperCase();
+				if(text != "") {
+					$(".list").append("<li class='item'>"+upperText+"</li>");
+					$("#newToDo").val("");
+				}
+			}
+
+
+			function finish() {
+				$(this).remove();
+			}
+		});
+
+</script>
+
+
+<div id="footer">
+		<p>Created by Connor Potebnya</p>
+</div>
+</html>
